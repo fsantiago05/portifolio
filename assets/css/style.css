@@ -1,0 +1,211 @@
+/* 
+   ========================================
+   CSS para Portfólio Responsivo
+   Paleta: Preto e Verde
+   Abordagem: Mobile-First
+   ========================================
+*/
+
+/* 
+   ---------- VARIÁVEIS DE COR E FONTES ----------
+   Usar variáveis torna a manutenção do design mais fácil.
+*/
+:root {
+    --cor-fundo: #121212;
+    --cor-fundo-card: #1e1e1e;
+    --cor-texto-primario: #e0e0e0;
+    --cor-texto-secundario: #a0a0a0;
+    --cor-primaria-verde: #28a745; /* Verde principal */
+    --cor-secundaria-verde: #218838; /* Verde mais escuro para hover */
+    --cor-borda: #333;
+
+    --fonte-principal: 'Poppins', sans-serif; /* Adicione a fonte Poppins no seu HTML */
+}
+
+/* 
+   ---------- ESTILOS GLOBAIS E RESET ----------
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-primario);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+h1, h2, h3 {
+    color: var(--cor-primaria-verde);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--cor-texto-secundario);
+}
+
+a {
+    color: var(--cor-primaria-verde);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--cor-secundaria-verde);
+}
+
+/* 
+   ---------- CABEÇALHO E NAVEGAÇÃO ----------
+*/
+.header {
+    background-color: var(--cor-fundo-card);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--cor-borda);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+/* 
+   ---------- SEÇÃO DE PROJETOS ----------
+*/
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 coluna em mobile */
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-top: 0;
+}
+
+/* 
+   ---------- BOTÕES ----------
+*/
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--cor-primaria-verde);
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--cor-secundaria-verde);
+    color: #fff;
+}
+
+/* 
+   ---------- MEDIA QUERIES PARA RESPONSIVIDADE ----------
+*/
+
+/* Telas de Tablet (e maiores) */
+@media (min-width: 768px) {
+    .projects-grid {
+        /* 2 colunas para tablets */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Telas de Desktop (e maiores) */
+@media (min-width: 1024px) {
+    .projects-grid {
+        /* 3 colunas para desktops */
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .container {
+        padding: 3rem 0;
+    }
+}
+/* Adiciona um estilo de card para a seção "Sobre" */
+        .about-card {
+            background-color: var(--cor-fundo-card);
+            border: 1px solid var(--cor-borda);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            max-width: 700px; /* Ajuste a largura máxima conforme necessário */
+            margin: 0 auto; /* Centraliza o card */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ajusta o tamanho da imagem dentro do card "Sobre" */
+        .about-card img {
+            width: 200px; /* Define a largura da foto */
+            height: 200px; /* Define a altura da foto */
+            border-radius: 50%; /* Deixa a imagem redonda */
+            margin-bottom: 15px;
+            object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+        }
+
+        .project-card img {
+            height: 200px; /* Define uma altura fixa para as imagens dos projetos */
+            object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+        }
